@@ -31,7 +31,8 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'jquery-ui-rails'
 gem 'designmodo-flatuipro-rails'
 gem 'simple_form'
-
+gem 'minitest'
+gem 'nokogiri'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

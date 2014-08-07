@@ -6,4 +6,8 @@ class VsController < ApplicationController
   def home
   end
 
+  def basics
+
+  end
+
 end

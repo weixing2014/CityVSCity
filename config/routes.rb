@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'flatuipro_demo/index'
   get 'vs/results'
+  get 'vs/basics'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
