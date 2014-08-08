@@ -45,29 +45,22 @@ require 'csv'
     end
 
     def translate_from_en_to_ch(place)
-      content = open(GOOGLE_TRANSLATOR % place.gsub(' ','+')).read
-      offset = content.index "\""
-      content = content[offset+1.. -1]
-      ending = content.index "\""
-      content = content[0, ending]
+
+      begin
+        content = open(GOOGLE_TRANSLATOR % place.gsub(' ','+')).read
+        offset = content.index "\""
+        content = content[offset+1.. -1]
+        ending = content.index "\""
+        content = content[0, ending]
+      rescue
+        content = place
+      ensure
       return content
+      end
     end
   end
 
-class T
+class Scraper
   extend CityDataScraper
 
 end
-
-p T.countries.each {
-    |country|
-  p T.translate_from_en_to_ch(country)
-
-  T.cities(country).each {
-    |city|
-    p T.translate_from_en_to_ch(city)
-
-  }
-  }
-
-

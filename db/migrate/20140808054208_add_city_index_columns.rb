@@ -42,6 +42,15 @@ class AddCityIndexColumns < ActiveRecord::Migration
     add_column :cities, :a_pair_of_nike_shoes, :decimal, precision:10, scale:2
     add_column :cities, :a_pair_of_men_leather_shoes, :decimal, precision:10, scale:2
 
+    add_column :cities, :apartment_one_bedroom_in_city_centre, :decimal, precision:10, scale:2
+    add_column :cities, :apartment_one_bedroom_outside_of_centre, :decimal, precision:10, scale:2
+    add_column :cities, :apartment_three_bedrooms_in_city_centre, :decimal, precision:10, scale:2
+    add_column :cities, :apartment_three_bedrooms_outside_of_centre, :decimal, precision:10, scale:2
 
+    add_column :cities, :price_per_square_meter_to_buy_apartment_in_city_centre, :decimal, precision:10, scale:2
+    add_column :cities, :price_per_square_meter_to_buy_apartment_outside_of_centre, :decimal, precision:10, scale:2
+
+    add_column :cities, :average_monthly_disposable_salary_after_tax, :decimal, precision:10, scale:2
+    add_column :cities, :mortgage_interest_rate_in_percentages_yearly, :decimal, precision:10, scale:2
   end
 end
