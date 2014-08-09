@@ -4,6 +4,7 @@ class VsController < ApplicationController
   end
 
   def home
+    @cities = City.all
   end
 
   def basics
