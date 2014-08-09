@@ -1,10 +1,8 @@
 <% cities = @cities.inject([]){|result, element| result << element[:name_en].force_encoding("utf-8")}.to_json %>
 <div style="margin-top: 250px; text-align: center">
   <form class="control-group">
-  <input class="span3" type="text" data-provide="typeahead" data-items="4" data-source="" >
-  <input class="span3" type="text" data-provide="typeahead" data-items="4" data-source="" >
-    <% local = ['Audi', 'BMW', 'Bugatti', 'Ferrari', 'Ford', 'Lamborghini', 'Mercedes Benz', 'Porsche', 'Rolls-Royce', 'Volkswagen'] %>
-    <input type="text" name="industries" placeholder="Select industries.." data-provide="typeahead" data-source='<%= cities  %>' />
+    <input class="span3" type="text" name="city_host" placeholder="Select a city" data-provide="typeahead" data-source='<%= cities  %>' />
+    <input class="span3" type="text" name="city_away" placeholder="Select a city" data-provide="typeahead" data-source='<%= cities  %>' />
 
   <button class="btn btn-primary btn-wide">对比一下</button>
 
