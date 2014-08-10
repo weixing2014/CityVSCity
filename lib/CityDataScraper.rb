@@ -62,5 +62,4 @@ require 'csv'
 
 class Scraper
   extend CityDataScraper
-
 end

@@ -11,10 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808070631) do
+ActiveRecord::Schema.define(version: 20140808054208) do
 
   create_table "cities", force: true do |t|
     t.string   "name_en"
+    t.string   "name_cn"
+    t.boolean  "searchable"
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -67,11 +69,7 @@ ActiveRecord::Schema.define(version: 20140808070631) do
 
   create_table "countries", force: true do |t|
     t.string "name_en"
-  end
-
-  create_table "translators", force: true do |t|
-    t.string "en"
-    t.string "cn"
+    t.string "name_cn"
   end
 
 end

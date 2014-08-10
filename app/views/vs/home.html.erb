@@ -1,4 +1,4 @@
-<% cities = @cities.inject([]){|result, element| result << element[:name_en].force_encoding("utf-8")}.to_json %>
+<% cities = @full_named_cities.to_json %>
 <div style="margin-top: 250px; text-align: center">
   <form class="control-group">
     <input class="span3" type="text" name="city_host" placeholder="Select a city" data-provide="typeahead" data-source='<%= cities  %>' />

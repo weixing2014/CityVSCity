@@ -4,7 +4,7 @@ class VsController < ApplicationController
   end
 
   def home
-    @cities = City.all
+    @full_named_cities = City.list_of_city_and_country_full_names_cn
   end
 
   def basics

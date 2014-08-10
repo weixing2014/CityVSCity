@@ -12,12 +12,10 @@ countries = Scraper.countries
 
 Scraper.countries.each do |country_en|
   country_cn = Scraper.translate_from_en_to_ch(country_en)
-  Translator.where(en:country_en).first_or_create!(en:country_en, cn:country_cn)
-  Country.where(name_en:country_en).first_or_create!(name_en:country_en)
+  Country.where(name_en:country_en).first_or_create!(name_en:country_en, name_cn:country_cn)
   Scraper.cities(country_en).each do |city_en|
     city_cn = Scraper.translate_from_en_to_ch(city_en)
-    Translator.where(en:city_en).first_or_create!(en:city_en, cn:city_cn)
-    City.where(name_en:city_en).first_or_create!(name_en:city_en,country:Country.where(name_en:country_en).first)
+    City.where(name_en:city_en).first_or_create!(name_en:city_en,name_cn:city_cn, country:Country.where(name_en:country_en).first)
 
   end
 end
