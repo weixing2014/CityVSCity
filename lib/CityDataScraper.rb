@@ -7,10 +7,8 @@ require 'csv'
     COUNTRY_URL = "http://www.numbeo.com/cost-of-living/country_result.jsp?country=%s"
     CITY_COST_OF_LIVING_URL = "http://www.numbeo.com/cost-of-living/city_result.jsp?displayCurrency=CNY&country=%s&city=%s"
     GOOGLE_TRANSLATOR = "https://translate.google.com//translate_a/single?client=t&sl=en&tl=zh-CN&hl=en&dt=bd&dt=ex&dt=ld&dt=md&dt=qc&dt=rw&dt=rm&dt=ss&dt=t&dt=at&dt=sw&ie=UTF-8&oe=UTF-8&ssel=0&tsel=0&q=%s"
-    def initialize
 
-    end
-    def countries
+    def self.countries
       doc = Nokogiri::HTML(open(COST_OF_LIVING_URL))
       countries = []
       doc.css('#country option').each do |country|
@@ -19,7 +17,7 @@ require 'csv'
       return countries
     end
 
-    def cities(country)
+    def self.cities(country)
       cities = []
       country = country.gsub(' ','+')
       doc = Nokogiri::HTML(open(COUNTRY_URL % country))
@@ -29,7 +27,7 @@ require 'csv'
       return cities
     end
 
-    def city_cost_of_living_hash(country, city)
+    def self.city_cost_of_living_hash(country, city)
       cost_of_living = {}
       country = country.gsub(' ','+')
       city = city.gsub(' ','+')
@@ -37,14 +35,21 @@ require 'csv'
       doc.css("tr").each do |tr|
         cost_of_living[tr.css('td').first.text] = tr.css('td')[1].text.gsub(/[^0-9.]/, "") if tr.css('td')[1]&&tr.css('td').first&&tr.css('td')[1].text.gsub(/[^0-9.]/, "") =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/&&!tr.css('td').first.text.delete!("\n")
       end
+
+      cost_of_living_for_database = {}
+
       return cost_of_living
     end
 
-    def cost_of_living_items
+    def self.cost_of_living_items
       cost_of_living = city_cost_of_living_hash('china','beijing').keys
     end
 
-    def translate_from_en_to_ch(place)
+    def self.cost_of_living_fields
+
+    end
+
+    def self.translate_from_en_to_ch(place)
 
       begin
         content = open(GOOGLE_TRANSLATOR % place.gsub(' ','+')).read
@@ -60,6 +65,3 @@ require 'csv'
     end
   end
 
-class Scraper
-  extend CityDataScraper
-end

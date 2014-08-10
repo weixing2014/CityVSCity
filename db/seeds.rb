@@ -7,16 +7,26 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'CityDataScraper'
+require 'ItemFieldMapping'
 
-countries = Scraper.countries
+countries = CityDataScraper.countries
 
-Scraper.countries.each do |country_en|
-  country_cn = Scraper.translate_from_en_to_ch(country_en)
+CityDataScraper.countries.each do |country_en|
+  country_cn = CityDataScraper.translate_from_en_to_ch(country_en)
   Country.where(name_en:country_en).first_or_create!(name_en:country_en, name_cn:country_cn)
-  Scraper.cities(country_en).each do |city_en|
-    city_cn = Scraper.translate_from_en_to_ch(city_en)
+  CityDataScraper.cities(country_en).each do |city_en|
+    city_cn = CityDataScraper.translate_from_en_to_ch(city_en)
     City.where(name_en:city_en).first_or_create!(name_en:city_en,name_cn:city_cn, country:Country.where(name_en:country_en).first)
 
+    cost_of_living = CityDataScraper.city_cost_of_living_hash(country_en, city_en)
+    cost_of_living_for_database = {}
+    cost_of_living.each do |key, value|
+      field = ItemFieldMapping.field_for(table: :cities, item:key)
+      if !field.nil?
+        cost_of_living_for_database[field] = cost_of_living[key]
+      end
+    end
+    p cost_of_living_for_database
   end
 end
 
