@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808054208) do
+ActiveRecord::Schema.define(version: 20140811084209) do
 
   create_table "cities", force: true do |t|
     t.string   "name_en"
     t.string   "name_cn"
-    t.boolean  "searchable"
+    t.boolean  "searchable",                                                                         default: true
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 20140808054208) do
     t.decimal  "apples_one_kilogram",                                       precision: 10, scale: 2
     t.decimal  "oranges_one_kilogram",                                      precision: 10, scale: 2
     t.decimal  "tomato_one_kilogram",                                       precision: 10, scale: 2
-    t.decimal  "lettuce_one_head",                                          precision: 10, scale: 2
+    t.decimal  "Lettuce (1 head)",                                          precision: 10, scale: 2
     t.decimal  "water_one_and_a_half_liter_bottle",                         precision: 10, scale: 2
     t.decimal  "bottle_of_wine_mid_range",                                  precision: 10, scale: 2
     t.decimal  "domestic_beer_half_liter_bottle",                           precision: 10, scale: 2
     t.decimal  "market_imported_beer_one_third_liter_bottle",               precision: 10, scale: 2
-    t.decimal  "pack_of_cigarettes_marlboro",                               precision: 10, scale: 2
+    t.decimal  ":pack_of_cigarettes_marlboro",                              precision: 10, scale: 2
     t.decimal  "one_way_ticket_local_transport",                            precision: 10, scale: 2
     t.decimal  "monthly_pass_regular_price",                                precision: 10, scale: 2
     t.decimal  "taxi_start_normal_tariff",                                  precision: 10, scale: 2
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20140808054208) do
     t.decimal  "taxi_one_hour_waiting_normal_tariff",                       precision: 10, scale: 2
     t.decimal  "gasoline_one_liter",                                        precision: 10, scale: 2
     t.decimal  "volkswagen_golf_trendline",                                 precision: 10, scale: 2
+    t.decimal  "basic_utilities_for_an_apartment",                          precision: 10, scale: 2
+    t.decimal  "one_min_of_prepaid_mobile_tariff",                          precision: 10, scale: 2
+    t.decimal  "internet_six_m_cable",                                      precision: 10, scale: 2
     t.decimal  "fitness_club_monthly_fee_for_one_adult",                    precision: 10, scale: 2
     t.decimal  "tennis_court_rent_one_hour_on_weekend",                     precision: 10, scale: 2
     t.decimal  "cinema_international_release_one_seat",                     precision: 10, scale: 2
@@ -69,6 +72,12 @@ ActiveRecord::Schema.define(version: 20140808054208) do
 
   create_table "countries", force: true do |t|
     t.string "name_en"
+    t.string "name_cn"
+  end
+
+  create_table "name_mappings", force: true do |t|
+    t.string "database_name_en"
+    t.string "numbeo_item_name"
     t.string "name_cn"
   end
 
