@@ -11,7 +11,6 @@ class AddNameMappings < ActiveRecord::Migration
       NameMapping.create :database_name_en => "meal_for_two_in_mid_range_restaurant_three_course", :numbeo_item_name => "Meal for 2, Mid-range Restaurant, Three-course", :name_cn => "中档餐厅两人正餐"
       NameMapping.create :database_name_en => "combo_meal_at_mcdonalds", :numbeo_item_name => "Combo Meal at McDonalds or Similar", :name_cn => "一份麦当劳套餐"
       NameMapping.create :database_name_en => "domestic_beer_half_liter_draught", :numbeo_item_name => "Domestic Beer (0.5 liter draught)", :name_cn => "本地啤酒一扎（500ml）"
-      NameMapping.create :database_name_en => "restaurant_imported_beer_one_third_liter_bottle", :numbeo_item_name => "Imported Beer (0.33 liter bottle)", :name_cn => "小瓶进口啤酒（330ml）"
       NameMapping.create :database_name_en => "cappuccino_regular", :numbeo_item_name => "Cappuccino (regular)", :name_cn => "一杯卡布奇诺咖啡"
       NameMapping.create :database_name_en => "pepsi_coke_one_third_liter", :numbeo_item_name => "Coke/Pepsi (0.33 liter bottle)", :name_cn => "一听可乐（330ml）"
       NameMapping.create :database_name_en => "water_one_third_liter", :numbeo_item_name => "Water (0.33 liter bottle)", :name_cn => "一小瓶水（330ml）"
@@ -24,12 +23,12 @@ class AddNameMappings < ActiveRecord::Migration
       NameMapping.create :database_name_en => "apples_one_kilogram", :numbeo_item_name => "Apples (1kg)", :name_cn => "苹果（一公斤）"
       NameMapping.create :database_name_en => "oranges_one_kilogram", :numbeo_item_name => "Oranges (1kg)", :name_cn => "桔子（一公斤）"
       NameMapping.create :database_name_en => "tomato_one_kilogram", :numbeo_item_name => "Tomato (1kg)", :name_cn => "西红柿（一公斤）"
-      NameMapping.create :database_name_en => "Lettuce (1 head)", :numbeo_item_name => "lettuce_one_head", :name_cn => "莴苣（一颗）"
+      NameMapping.create :database_name_en => "lettuce_one_head", :numbeo_item_name => "Lettuce (1 head)", :name_cn => "莴苣（一颗）"
       NameMapping.create :database_name_en => "water_one_and_a_half_liter_bottle", :numbeo_item_name => "Water (1.5 liter bottle)", :name_cn => "纯净水（1.5升装）"
       NameMapping.create :database_name_en => "bottle_of_wine_mid_range", :numbeo_item_name => "Bottle of Wine (Mid-Range)", :name_cn => "中档瓶装红酒"
       NameMapping.create :database_name_en => "domestic_beer_half_liter_bottle", :numbeo_item_name => "Domestic Beer (0.5 liter bottle)", :name_cn => "本地啤酒一瓶（500ml）"
-      NameMapping.create :database_name_en => "market_imported_beer_one_third_liter_bottle", :numbeo_item_name => "Imported Beer (0.33 liter bottle)", :name_cn => "小瓶进口啤酒（330ml）"
-      NameMapping.create :database_name_en => ":pack_of_cigarettes_marlboro", :numbeo_item_name => "Pack of Cigarettes (Marlboro", :name_cn => "万宝路香烟（一包）"
+      NameMapping.create :database_name_en => "imported_beer_one_third_liter_bottle", :numbeo_item_name => "Imported Beer (0.33 liter bottle)", :name_cn => "小瓶进口啤酒（330ml）"
+      NameMapping.create :database_name_en => ":pack_of_cigarettes_marlboro", :numbeo_item_name => "Pack of Cigarettes (Marlboro)", :name_cn => "万宝路香烟（一包）"
       NameMapping.create :database_name_en => "one_way_ticket_local_transport", :numbeo_item_name => "One-way Ticket (Local Transport)", :name_cn => "单程公交车票"
       NameMapping.create :database_name_en => "monthly_pass_regular_price", :numbeo_item_name => "Monthly Pass (Regular Price)", :name_cn => "普通月票"
       NameMapping.create :database_name_en => "taxi_start_normal_tariff", :numbeo_item_name => "Taxi Start (Normal Tariff)", :name_cn => "出租车起步价"
@@ -55,6 +54,8 @@ class AddNameMappings < ActiveRecord::Migration
       NameMapping.create :database_name_en => "price_per_square_meter_to_buy_apartment_outside_of_centre", :numbeo_item_name => "Price per Square Meter to Buy Apartment Outside of Centre", :name_cn => "非市中心每平方米房价"
       NameMapping.create :database_name_en => "average_monthly_disposable_salary_after_tax", :numbeo_item_name => "Average Monthly Disposable Salary (After Tax)", :name_cn => "税后平均公资"
       NameMapping.create :database_name_en => "mortgage_interest_rate_in_percentages_yearly", :numbeo_item_name => "Mortgage Interest Rate in Percentages (%), Yearly", :name_cn => "抵押贷款年利率（%）"
+      NameMapping.create :database_name_en => "contributors", :numbeo_item_name => "Contributors", :name_cn => "贡献者数"
+
 
     end
 

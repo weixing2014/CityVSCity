@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20140811084209) do
     t.decimal  "meal_for_two_in_mid_range_restaurant_three_course",         precision: 10, scale: 2
     t.decimal  "combo_meal_at_mcdonalds",                                   precision: 10, scale: 2
     t.decimal  "domestic_beer_half_liter_draught",                          precision: 10, scale: 2
-    t.decimal  "restaurant_imported_beer_one_third_liter_bottle",           precision: 10, scale: 2
     t.decimal  "cappuccino_regular",                                        precision: 10, scale: 2
     t.decimal  "pepsi_coke_one_third_liter",                                precision: 10, scale: 2
     t.decimal  "water_one_third_liter",                                     precision: 10, scale: 2
@@ -37,11 +36,11 @@ ActiveRecord::Schema.define(version: 20140811084209) do
     t.decimal  "apples_one_kilogram",                                       precision: 10, scale: 2
     t.decimal  "oranges_one_kilogram",                                      precision: 10, scale: 2
     t.decimal  "tomato_one_kilogram",                                       precision: 10, scale: 2
-    t.decimal  "Lettuce (1 head)",                                          precision: 10, scale: 2
+    t.decimal  "lettuce_one_head",                                          precision: 10, scale: 2
     t.decimal  "water_one_and_a_half_liter_bottle",                         precision: 10, scale: 2
     t.decimal  "bottle_of_wine_mid_range",                                  precision: 10, scale: 2
     t.decimal  "domestic_beer_half_liter_bottle",                           precision: 10, scale: 2
-    t.decimal  "market_imported_beer_one_third_liter_bottle",               precision: 10, scale: 2
+    t.decimal  "imported_beer_one_third_liter_bottle",                      precision: 10, scale: 2
     t.decimal  ":pack_of_cigarettes_marlboro",                              precision: 10, scale: 2
     t.decimal  "one_way_ticket_local_transport",                            precision: 10, scale: 2
     t.decimal  "monthly_pass_regular_price",                                precision: 10, scale: 2
@@ -68,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140811084209) do
     t.decimal  "price_per_square_meter_to_buy_apartment_outside_of_centre", precision: 10, scale: 2
     t.decimal  "average_monthly_disposable_salary_after_tax",               precision: 10, scale: 2
     t.decimal  "mortgage_interest_rate_in_percentages_yearly",              precision: 10, scale: 2
+    t.decimal  "contributors",                                              precision: 10, scale: 2
   end
 
   create_table "countries", force: true do |t|

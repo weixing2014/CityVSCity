@@ -6789,9 +6789,9 @@ $.extend( $.ui.autocomplete, {
 $.widget( "ui.autocomplete", $.ui.autocomplete, {
 	options: {
 		messages: {
-			noResults: "No search results.",
+			noResults: "No search result.",
 			results: function( amount ) {
-				return amount + ( amount > 1 ? " results are" : " result is" ) +
+				return amount + ( amount > 1 ? " result are" : " result is" ) +
 					" available, use up and down arrow keys to navigate.";
 			}
 		}
@@ -11672,7 +11672,7 @@ $.fn.position = function( options ) {
 		position.left += myOffset[ 0 ];
 		position.top += myOffset[ 1 ];
 
-		// if the browser doesn't support fractions, then round for consistent results
+		// if the browser doesn't support fractions, then round for consistent result
 		if ( !$.support.offsetFractions ) {
 			position.left = round( position.left );
 			position.top = round( position.top );

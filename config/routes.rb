@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'vs/home'
 
   get 'flatuipro_demo/index'
-  get 'vs/results'
+  get 'vs/result'
   get 'vs/basics'
 
 

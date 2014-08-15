@@ -10,7 +10,7 @@ require 'CityDataScraper'
 
 countries = CityDataScraper.countries
 
-CityDataScraper.countries[0..2].each do |country_en|
+CityDataScraper.countries[0..10].each do |country_en|
   country_cn = CityDataScraper.translate_from_en_to_ch(country_en)
   Country.where(name_en:country_en).first_or_create!(name_en:country_en, name_cn:country_cn)
   CityDataScraper.cities(country_en).each do |city_en|

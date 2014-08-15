@@ -1,6 +1,6 @@
 <% cities = @full_named_cities.to_json %>
 <div style="margin-top: 250px; text-align: center">
-  <form class="control-group">
+  <form class="control-group" method="get" action="result.html">
     <input class="span3" type="text" name="city_host" placeholder="Select a city" data-provide="typeahead" data-source='<%= cities  %>' />
     <input class="span3" type="text" name="city_away" placeholder="Select a city" data-provide="typeahead" data-source='<%= cities  %>' />
 

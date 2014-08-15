@@ -1,0 +1,32 @@
+
+<div style="text-align: center">
+  <form class="control-group">
+    <input class="span3" type="text" data-provide="typeahead" data-items="4" data-source='' value="<%= h @city_host.name_cn.force_encoding('utf-8')%>">
+    <input class="span3" type="text" data-provide="typeahead" data-items="4" data-source='' value="<%= h @city_away.name_cn.force_encoding('utf-8')%>">
+
+    <button class="btn btn-primary btn-wide">对比一下</button>
+
+  </form>
+</div>
+
+      <div class="demo-row">
+        <div class="demo-content-wide">
+          <table class="table table-striped">
+            <tr>
+              <th>对比项目</th>
+              <th><%= h @city_host.name_cn.force_encoding('utf-8')%></th>
+              <th><%= h @city_away.name_cn.force_encoding('utf-8')%></th>
+              <th>对比结果</th>
+            </tr>
+
+
+            <tr>
+              <td>一公斤牛奶</td>
+              <td><%= @city_host.meal_in_inexpensive_restaurant%></td>
+              <td><%= @city_away.meal_in_inexpensive_restaurant%></td>
+              <td><%= @city_host.name_cn %></td>
+            </tr>
+
+          </table>
+        </div>
+      </div>

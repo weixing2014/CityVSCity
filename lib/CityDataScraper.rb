@@ -36,6 +36,7 @@ require 'csv'
         cost_of_living[tr.css('td').first.text] = tr.css('td')[1].text.gsub(/[^0-9.]/, "") if tr.css('td')[1]&&tr.css('td').first&&tr.css('td')[1].text.gsub(/[^0-9.]/, "") =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/&&!tr.css('td').first.text.delete!("\n")
       end
 
+      cost_of_living["contributors"] = doc.css(".data_wide_table + p").first.next.text[/#{'18 months from'}(.*?)#{'different contributors'}/m, 1].strip()
       return cost_of_living
     end
 
@@ -63,3 +64,4 @@ require 'csv'
     end
   end
 
+# p CityDataScraper.city_cost_of_living_hash('China','Beijing')
