@@ -125154,7 +125154,7 @@ cities:
     - Dimashq
     - !binary |-
       5aSn6ams5aOr6Z2p
-    - true
+    - false
     - '172'
     - '2014-08-16 23:42:16'
     - '2014-08-16 23:42:16'

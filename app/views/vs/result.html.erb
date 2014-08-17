@@ -1,12 +1,7 @@
+<% cities = @full_named_cities.to_json %>
 
 <div style="text-align: center">
-  <form class="control-group">
-    <input class="span3" type="text" data-provide="typeahead" data-items="4" data-source='' value="<%= h @city_host.name_cn.force_encoding('utf-8')%>">
-    <input class="span3" type="text" data-provide="typeahead" data-items="4" data-source='' value="<%= h @city_away.name_cn.force_encoding('utf-8')%>">
-
-    <button class="btn btn-primary btn-wide">对比一下</button>
-
-  </form>
+  <%= render partial: "searchboxes", locals: {full_named_cities: @full_named_cities} %>
 </div>
 
       <div class="demo-row">
@@ -21,10 +16,17 @@
 
 
             <tr>
-              <td>一公斤牛奶</td>
-              <td><%= @city_host.meal_in_inexpensive_restaurant%></td>
-              <td><%= @city_away.meal_in_inexpensive_restaurant%></td>
-              <td><%= @city_host.name_cn %></td>
+              <td><%= @name_mappings['meal_in_inexpensive_restaurant'].force_encoding('utf-8') %></td>
+              <td><%= make_it_price(@city_host.meal_in_inexpensive_restaurant)%></td>
+              <td><%= make_it_price(@city_away.meal_in_inexpensive_restaurant)%></td>
+              <td><%= comparison_result(city_host:@city_host, city_away:@city_away,  item: :meal_in_inexpensive_restaurant) %></td>
+            </tr>
+
+            <tr>
+              <td><%= @name_mappings['meal_for_two_in_mid_range_restaurant_three_course'].force_encoding('utf-8') %></td>
+              <td><%= make_it_price(@city_host.meal_for_two_in_mid_range_restaurant_three_course)%></td>
+              <td><%= make_it_price(@city_away.meal_for_two_in_mid_range_restaurant_three_course)%></td>
+              <td><%= comparison_result(city_host:@city_host, city_away:@city_away,  item: :meal_for_two_in_mid_range_restaurant_three_course) %></td>
             </tr>
 
           </table>
