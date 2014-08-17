@@ -72,4 +72,3 @@ require 'csv'
     end
   end
 
-# p CityDataScraper.city_cost_of_living_hash('China','Beijing')
