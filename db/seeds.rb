@@ -10,11 +10,11 @@ require 'CityDataScraper'
 
 countries = CityDataScraper.countries
 
-CityDataScraper.countries[0..10].each do |country_en|
+CityDataScraper.countries.each do |country_en|
   country_cn = CityDataScraper.translate_from_en_to_ch(country_en)
   Country.where(name_en:country_en).first_or_create!(name_en:country_en, name_cn:country_cn)
   CityDataScraper.cities(country_en).each do |city_en|
-    city_cn = CityDataScraper.translate_from_en_to_ch(city_en)
+    city_cn = CityDataScraper.translate_from_en_to_ch(city_en.partition(',').first)
     city = City.where(name_en:city_en).first_or_initialize(name_en:city_en,name_cn:city_cn, country:Country.where(name_en:country_en).first)
 
     cost_of_living = CityDataScraper.city_cost_of_living_hash(country_en, city_en)
@@ -26,8 +26,15 @@ CityDataScraper.countries[0..10].each do |country_en|
       if !database_name_en.nil?
         cost_of_living_for_database[database_name_en] = cost_of_living[key].to_f
       end
-      city.update_attributes(cost_of_living_for_database)
     end
+
+    if (!cost_of_living_for_database[:contributors].nil? and cost_of_living_for_database[:contributors]>=10)
+      cost_of_living_for_database[:searchable] = true
+    else
+      cost_of_living_for_database[:searchable] = false
+    end
+    city.update_attributes(cost_of_living_for_database)
+
   end
 end
 

@@ -6,5 +6,7 @@ class AddCityIndexColumns < ActiveRecord::Migration
         add_column :cities, title, :decimal, precision:10, scale:2
       end
     end
+
+
   end
 end

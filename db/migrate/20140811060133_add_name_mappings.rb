@@ -23,6 +23,7 @@ class AddNameMappings < ActiveRecord::Migration
       NameMapping.create :database_name_en => "apples_one_kilogram", :numbeo_item_name => "Apples (1kg)", :name_cn => "苹果（一公斤）"
       NameMapping.create :database_name_en => "oranges_one_kilogram", :numbeo_item_name => "Oranges (1kg)", :name_cn => "桔子（一公斤）"
       NameMapping.create :database_name_en => "tomato_one_kilogram", :numbeo_item_name => "Tomato (1kg)", :name_cn => "西红柿（一公斤）"
+      NameMapping.create :database_name_en => "potato_one_kilogram", :numbeo_item_name => "Potato (1kg)", :name_cn => "土豆（一公斤）"
       NameMapping.create :database_name_en => "lettuce_one_head", :numbeo_item_name => "Lettuce (1 head)", :name_cn => "莴苣（一颗）"
       NameMapping.create :database_name_en => "water_one_and_a_half_liter_bottle", :numbeo_item_name => "Water (1.5 liter bottle)", :name_cn => "纯净水（1.5升装）"
       NameMapping.create :database_name_en => "bottle_of_wine_mid_range", :numbeo_item_name => "Bottle of Wine (Mid-Range)", :name_cn => "中档瓶装红酒"

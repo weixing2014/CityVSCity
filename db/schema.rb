@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140811084209) do
     t.decimal  "apples_one_kilogram",                                       precision: 10, scale: 2
     t.decimal  "oranges_one_kilogram",                                      precision: 10, scale: 2
     t.decimal  "tomato_one_kilogram",                                       precision: 10, scale: 2
+    t.decimal  "potato_one_kilogram",                                       precision: 10, scale: 2
     t.decimal  "lettuce_one_head",                                          precision: 10, scale: 2
     t.decimal  "water_one_and_a_half_liter_bottle",                         precision: 10, scale: 2
     t.decimal  "bottle_of_wine_mid_range",                                  precision: 10, scale: 2
