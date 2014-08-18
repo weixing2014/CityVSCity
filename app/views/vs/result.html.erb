@@ -14,20 +14,53 @@
               <th>对比结果</th>
             </tr>
 
-
-            <tr>
-              <td><%= @name_mappings['meal_in_inexpensive_restaurant'].force_encoding('utf-8') %></td>
-              <td><%= make_it_price(@city_host.meal_in_inexpensive_restaurant)%></td>
-              <td><%= make_it_price(@city_away.meal_in_inexpensive_restaurant)%></td>
-              <td><%= comparison_result(city_host:@city_host, city_away:@city_away,  item: :meal_in_inexpensive_restaurant) %></td>
-            </tr>
-
-            <tr>
-              <td><%= @name_mappings['meal_for_two_in_mid_range_restaurant_three_course'].force_encoding('utf-8') %></td>
-              <td><%= make_it_price(@city_host.meal_for_two_in_mid_range_restaurant_three_course)%></td>
-              <td><%= make_it_price(@city_away.meal_for_two_in_mid_range_restaurant_three_course)%></td>
-              <td><%= comparison_result(city_host:@city_host, city_away:@city_away,  item: :meal_for_two_in_mid_range_restaurant_three_course) %></td>
-            </tr>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :contributors} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :average_monthly_disposable_salary_after_tax} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :meal_in_inexpensive_restaurant} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :meal_for_two_in_mid_range_restaurant_three_course} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :combo_meal_at_mcdonalds} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :domestic_beer_half_liter_draught} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :cappuccino_regular} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :pepsi_coke_one_third_liter} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :water_one_third_liter} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :milk_regular_one_liter} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :loaf_of_fresh_white_bread_half_kilogram} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :rice_white_one_kilogram} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :eggs_a_dozen} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :local_cheese_one_kilogram} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :chicken_breasts_boneless_skinless_one_kilogram} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :apples_one_kilogram} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :oranges_one_kilogram} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :tomato_one_kilogram} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :potato_one_kilogram} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :lettuce_one_head} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :water_one_and_a_half_liter_bottle} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :domestic_beer_half_liter_bottle} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :imported_beer_one_third_liter_bottle} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :pack_of_cigarettes_marlboro} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :one_way_ticket_local_transport} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :monthly_pass_regular_price} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :taxi_start_normal_tariff} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :taxi_one_kilometer_normal_tariff} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :gasoline_one_liter} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :volkswagen_golf_trendline} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :basic_utilities_for_an_apartment} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :one_min_of_prepaid_mobile_tariff} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :internet_six_m_cable} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :fitness_club_monthly_fee_for_one_adult} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :tennis_court_rent_one_hour_on_weekend} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :cinema_international_release_one_seat} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :a_pair_of_jeans_levis_501} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :a_summer_dress_in_a_chain_store_zara_hm} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :a_pair_of_nike_shoes} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :a_pair_of_men_leather_shoes} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :apartment_one_bedroom_in_city_centre} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :apartment_one_bedroom_outside_of_centre} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :apartment_three_bedrooms_in_city_centre} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :apartment_three_bedrooms_outside_of_centre} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :price_per_square_meter_to_buy_apartment_in_city_centre} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :price_per_square_meter_to_buy_apartment_outside_of_centre} %>
+            <%= render partial: "vs_tr", locals: {city_host:@city_host, city_away:@city_away, column: :mortgage_interest_rate_in_percentages_yearly} %>
 
           </table>
         </div>

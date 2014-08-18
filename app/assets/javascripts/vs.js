@@ -6,6 +6,8 @@ String.prototype.repeat = function(num) {
 
 (function($) {
 
+
+
     // Add segments to a slider
     $.fn.addSliderSegments = function (amount) {
         return this.each(function () {
@@ -184,5 +186,8 @@ String.prototype.repeat = function(num) {
 
         // make code pretty
         window.prettyPrint && prettyPrint()
+
+
+
     });
 })(jQuery);

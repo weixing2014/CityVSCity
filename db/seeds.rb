@@ -8,10 +8,11 @@
 
 require 'CityDataScraper'
 
-#countries = CityDataScraper.countries
-countries = ["United Kingdom"]
+countries = CityDataScraper.countries
+#countries = ["United Kingdom"]
 
 countries.each do |country_en|
+  puts "Set up database for #{country_en}"
   country_cn = CityDataScraper.translate_from_en_to_ch(country_en)
   Country.where(name_en:country_en).first_or_create!(name_en:country_en, name_cn:country_cn)
   cities = CityDataScraper.cities(country_en)

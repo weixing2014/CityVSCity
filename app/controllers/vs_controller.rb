@@ -8,7 +8,7 @@ class VsController < ApplicationController
 
     @name_mappings = {}
     NameMapping.all.each do |element|
-      @name_mappings[element.database_name_en] = element.name_cn
+      @name_mappings[element.database_name_en.to_sym] = element.name_cn
     end
 
   end

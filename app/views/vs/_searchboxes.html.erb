@@ -1,8 +1,15 @@
 <% cities = @full_named_cities.to_json %>
 
 <form class="control-group" method="get" action="result.html">
-  <input class="span3" type="text" name="city_host" placeholder="选择一座城" data-provide="typeahead" data-source='<%= cities  %>' />
-  <input class="span3" type="text" name="city_away" placeholder="选择一座城" data-provide="typeahead" data-source='<%= cities  %>' />
+  <input class="span3" type="text" name="city_host" placeholder="一座城市" data-provide="typeahead" data-source='<%= cities  %>' />
+  <input class="span3" type="text" name="city_away" placeholder="另一座城市" data-provide="typeahead" data-source='<%= cities  %>' />
   <button class="btn btn-primary btn-wide">对比一下</button>
 
 </form>
+
+<script>
+    $("input[name='city_host']").eq(0).focus(function(){
+        console.log("focus!");
+    })
+
+</script>
