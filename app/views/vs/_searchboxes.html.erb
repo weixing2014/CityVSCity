@@ -1,15 +1,16 @@
 <% cities = raw @full_named_cities.to_json %>
 
-<form class="control-group" method="get" action="result.html">
+<form id="search_form" class="control-group" method="get" action="result.html">
 
-    <input id="city_host__input" class="typeahead" type="text" name="city_host" placeholder="一座城市">
-    <input id="city_away__input" class="typeahead" type="text" name="city_away" placeholder="另一座城市">
-    <button id="submit__button" class="btn btn-primary btn-wide">对比一下</button>
+    <input id="city_host__input" class="typeahead" type="text" name="city_host" value="北京, 中国" placeholder="一座城市">
+    <input id="city_away__input" class="typeahead" type="text" name="city_away" value="西雅图, 美国" placeholder="另一座城市">
+    <button id="submit__button" class="btn btn-primary btn-wide" style="position:relative; top:11px">对比一下</button>
 </form>
 
 <div id="the-basics">
 
 </div>
+
 <script>
 
     var substringMatcher = function(strs) {
@@ -38,41 +39,115 @@
 
     var states = <%= cities %>
 
-    $('#city_host__input, #city_away__input, #submit__button').typeahead({
+    $('#city_host__input, #city_away__input').typeahead({
                 hint: true,
                 highlight: true,
-                minLength: 1
+                minLength: 0,
+                autoselect: true
             },
             {
                 name: 'states',
                 displayKey: 'value',
                 source: substringMatcher(states)
             });
+    $("#city_host__input").focus();
   function isInputValid(obj){
       text = jQuery.trim($(obj).val());
       cities = <%= cities %>
       if(jQuery.inArray(text, cities)!=-1)
       {
-
-          console.log("valid!")
           return true
       }
       else
       {
-          console.log(text)
-          console.log("invalid")
+
           return false
       }
   }
 
-  $("input[name='city_host'], input[name='city_away']").bind('change keyup',function (){
-      isInputValid(this)
+    $("#city_host__input").focus(function() {
+        $("#city_host__input").css("border-color", "");
 
-      if(isInputValid($("input[name='city_host']"))&&isInputValid($("input[name='city_away']"))){
-          alert('cool')
-      }
+        var val = $("#city_host__input").val()
+        $("#city_host__input").typeahead('val', '');
+        $("#city_host__input").typeahead('val', val);
+    });
+    $("#city_away__input").focus(function(){
+        $("#city_away__input").css("border-color","");
+        var val = $("#city_away__input").val();
+        $("#city_away__input").typeahead('val', '');
+        $("#city_away__input").typeahead('val', val);
+    })
 
-  });
+    $("#city_host__input").blur(function(){
+        if(!isInputValid($("#city_host__input"))){
+            $("#city_host__input").css("border-color","#e74c3c")
+        }
+    })
 
+    $("#city_away__input").blur(function(){
+        if(!isInputValid($("#city_away__input"))){
+            $("#city_away__input").css("border-color","#e74c3c")
+        }
+    })
+
+    $("#submit__button").on("click",function(e){
+        e.preventDefault();
+
+        if(!isInputValid($("#city_host__input"))){
+            $("#city_host__input").css("border-color","#e74c3c")
+        }
+        else if(!isInputValid($("#city_away__input"))){
+            $("#city_away__input").css("border-color","#e74c3c")
+        }
+        else {
+            $("#search_form").submit();
+
+        }
+
+
+    })
+
+
+
+
+//  $(function(){
+//      $("#submit__button").removeClass("btn-primary").addClass("disabled");
+//      $("#submit__button").prop("disabled",true);
+//
+//  })
+//
+//    jQuery("input[name='city_host'], input[name='city_away']").on('typeahead:selected, typeahead:autocompleted', function (e, datum) {
+//        isInputValid(this)
+//
+//        if(isInputValid($("input[name='city_host']"))&&isInputValid($("input[name='city_away']"))){
+//            $("#submit__button").removeClass("disabled").addClass("btn-primary");
+//            $("#submit__button").prop("disabled",false);
+//
+//        }
+//        else
+//        {
+//            $("#submit__button").removeClass("btn-primary").addClass("disabled");
+//            $("#submit__button").prop("disabled",true);
+//        }
+//    });
+//
+//  $("input[name='city_host'], input[name='city_away']").bind('change keyup',function (){
+//      isInputValid(this)
+//
+//      if(isInputValid($("input[name='city_host']"))&&isInputValid($("input[name='city_away']"))){
+//          $("#submit__button").removeClass("disabled").addClass("btn-primary");
+//          $("#submit__button").prop("disabled",false);
+//
+//      }
+//      else
+//      {
+//          $("#submit__button").removeClass("btn-primary").addClass("disabled");
+//          $("#submit__button").prop("disabled",true);
+//      }
+//
+//  });
+//
+//  $()
 
 </script>
