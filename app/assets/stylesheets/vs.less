@@ -365,3 +365,61 @@
     margin-right: -@rwd-container-space;
   }
 }
+
+.tt-dropdown-menu {
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  width: auto;
+  min-width: 160px;
+  margin-top: 5px;
+  border:2px solid #1abc9c;
+  padding: 5px 0;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: none;
+  -webkit-backface-visibility:hidden;
+  z-index: 1051;
+  float: left;
+  margin:2px 0 0;
+  list-style: none;
+  background-clip:padding-box;
+
+//
+//  top: 100%;
+//  left: 0;
+//  z-index: 1000;
+//  display: none;
+//  float: left;
+//  padding: 5px 0;
+//  margin: 2px 0 0;
+//  list-style: none;
+//  font-size: 14px;
+//  border: 1px solid #cccccc;
+//  border: 1px solid rgba(0, 0, 0, 0.15);
+//  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+//  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+//  background-clip: padding-box;
+}
+.tt-suggestion > p {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1;
+  color:#34495e;
+  white-space: nowrap;
+}
+.tt-suggestion > p:hover,
+.tt-suggestion > p:focus,
+.tt-suggestion.tt-cursor p {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #1abc9c;
+}
+
+.tt-suggestion > p{
+  margin:0;
+}

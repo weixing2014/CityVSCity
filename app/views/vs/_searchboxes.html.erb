@@ -1,14 +1,53 @@
 <% cities = raw @full_named_cities.to_json %>
 
 <form class="control-group" method="get" action="result.html">
-  <input id="city_host__input" class="span3" type="text" name="city_host" placeholder="一座城市" data-provide="typeahead" data-source='<%= cities  %>' />
-  <input id="city_away__input" class="span3" type="text" name="city_away" placeholder="另一座城市" data-provide="typeahead" data-source='<%= cities  %>' />
-  <button class="btn btn-primary btn-wide">对比一下</button>
 
+    <input id="city_host__input" class="typeahead" type="text" name="city_host" placeholder="一座城市">
+    <input id="city_away__input" class="typeahead" type="text" name="city_away" placeholder="另一座城市">
+    <button id="submit__button" class="btn btn-primary btn-wide">对比一下</button>
 </form>
 
+<div id="the-basics">
+
+</div>
 <script>
 
+    var substringMatcher = function(strs) {
+        return function findMatches(q, cb) {
+            var matches, substrRegex;
+
+            // an array that will be populated with substring matches
+            matches = [];
+
+            // regex used to determine if a string contains the substring `q`
+            substrRegex = new RegExp(q, 'i');
+
+            // iterate through the pool of strings and for any string that
+            // contains the substring `q`, add it to the `matches` array
+            $.each(strs, function(i, str) {
+                if (substrRegex.test(str)) {
+                    // the typeahead jQuery plugin expects suggestions to a
+                    // JavaScript object, refer to typeahead docs for more info
+                    matches.push({ value: str });
+                }
+            });
+
+            cb(matches);
+        };
+    };
+
+    var states = <%= cities %>
+
+    $('#city_host__input, #city_away__input, #submit__button').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },
+            {
+                name: 'states',
+                displayKey: 'value',
+                source: substringMatcher(states)
+            });
   function isInputValid(obj){
       text = jQuery.trim($(obj).val());
       cities = <%= cities %>
