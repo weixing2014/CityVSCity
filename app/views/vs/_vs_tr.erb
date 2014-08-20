@@ -1,0 +1,8 @@
+<% if @name_mappings[column].present? %>
+<tr>
+  <td><%= @name_mappings[column].force_encoding('utf-8') %></td>
+  <td><%= make_it_price(@city_host.try(column))%></td>
+  <td><%= make_it_price(@city_away.try(column))%></td>
+  <td><%= comparison_result(city_host:@city_host, city_away:@city_away,  item: column) %></td>
+</tr>
+<% end %>
