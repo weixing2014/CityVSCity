@@ -36,7 +36,7 @@ class AddNameMappings < ActiveRecord::Migration
       NameMapping.create :database_name_en => "taxi_one_kilometer_normal_tariff", :numbeo_item_name => "Taxi 1km (Normal Tariff)", :name_cn => "出租车每公里"
       NameMapping.create :database_name_en => "taxi_one_hour_waiting_normal_tariff", :numbeo_item_name => "Taxi 1hour Waiting (Normal Tariff)", :name_cn => "出租车等待1小时"
       NameMapping.create :database_name_en => "gasoline_one_liter", :numbeo_item_name => "Gasoline (1 liter)", :name_cn => "汽油（一升）"
-      NameMapping.create :database_name_en => "volkswagen_golf_trendline", :numbeo_item_name => "Volkswagen Golf 1.4 90 KW Trendline (Or Equivalent New Car)", :name_cn => "大众高尔夫"
+      NameMapping.create :database_name_en => "volkswagen_golf_trendline", :numbeo_item_name => "Volkswagen Golf 1.4 90 KW Trendline (Or Equivalent New Car)", :name_cn => "大众高尔夫汽车"
       NameMapping.create :database_name_en => "basic_utilities_for_an_apartment", :numbeo_item_name => "Basic (Electricity, Heating, Water, Garbage) for 85m2 Apartment", :name_cn => "85平方米公寓水电暖气物业费（每月）"
       NameMapping.create :database_name_en => "one_min_of_prepaid_mobile_tariff", :numbeo_item_name => "1 min. of Prepaid Mobile Tariff Local (No Discounts or Plans)", :name_cn => "手机话费（1分钟）"
       NameMapping.create :database_name_en => "internet_six_m_cable", :numbeo_item_name => "Internet (6 Mbps, Unlimited Data, Cable/ADSL)", :name_cn => "6M宽带（每月）"
