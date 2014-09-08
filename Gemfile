@@ -27,15 +27,12 @@ gem 'spring',        group: :development
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-gem 'jquery-ui-rails'
-gem 'designmodo-flatuipro-rails'
 gem 'simple_form'
 gem 'minitest'
 gem 'nokogiri'
 gem  'mysql2', '~> 0.3.11'
-gem 'twitter-typeahead-rails'
 gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
-
+gem "select2-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -4,150 +4,83 @@
 
     <input id="city_host__input" class="typeahead" type="text" name="city_host" value="北京, 中国" placeholder="一座城市">
     <input id="city_away__input" class="typeahead" type="text" name="city_away" value="西雅图, 美国" placeholder="另一座城市">
-    <button id="submit__button" class="btn btn-primary btn-wide" style="position:relative; top:11px">对比一下</button>
+    <button id="submit__button" class="btn btn-primary btn-wide" style="position:relative;">对比一下</button>
 </form>
 
 <div id="the-basics">
 
 </div>
 
-<script>
 
-    var substringMatcher = function(strs) {
-        return function findMatches(q, cb) {
-            var matches, substrRegex;
+  <script>
+      $(function(){
+          // turn the element to select2 select style
+          $('#select2').select2();
+      });
+  </script>
 
-            // an array that will be populated with substring matches
-            matches = [];
-
-            // regex used to determine if a string contains the substring `q`
-            substrRegex = new RegExp(q, 'i');
-
-            // iterate through the pool of strings and for any string that
-            // contains the substring `q`, add it to the `matches` array
-            $.each(strs, function(i, str) {
-                if (substrRegex.test(str)) {
-                    // the typeahead jQuery plugin expects suggestions to a
-                    // JavaScript object, refer to typeahead docs for more info
-                    matches.push({ value: str });
-                }
-            });
-
-            cb(matches);
-        };
-    };
-
-    var states = <%= cities %>
-
-    $('#city_host__input, #city_away__input').typeahead({
-                hint: true,
-                highlight: true,
-                minLength: 0,
-                autoselect: true
-            },
-            {
-                name: 'states',
-                displayKey: 'value',
-                source: substringMatcher(states)
-            });
-    $("#city_host__input").focus();
-  function isInputValid(obj){
-      text = jQuery.trim($(obj).val());
-      cities = <%= cities %>
-      if(jQuery.inArray(text, cities)!=-1)
-      {
-          return true
-      }
-      else
-      {
-
-          return false
-      }
-  }
-
-    $("#city_host__input").focus(function() {
-        $("#city_host__input").css("border-color", "");
-
-        var val = $("#city_host__input").val()
-        $("#city_host__input").typeahead('val', '');
-        $("#city_host__input").typeahead('val', val);
-    });
-    $("#city_away__input").focus(function(){
-        $("#city_away__input").css("border-color","");
-        var val = $("#city_away__input").val();
-        $("#city_away__input").typeahead('val', '');
-        $("#city_away__input").typeahead('val', val);
-    })
-
-    $("#city_host__input").blur(function(){
-        if(!isInputValid($("#city_host__input"))){
-            $("#city_host__input").css("border-color","#e74c3c")
-        }
-    })
-
-    $("#city_away__input").blur(function(){
-        if(!isInputValid($("#city_away__input"))){
-            $("#city_away__input").css("border-color","#e74c3c")
-        }
-    })
-
-    $("#submit__button").on("click",function(e){
-        e.preventDefault();
-
-        if(!isInputValid($("#city_host__input"))){
-            $("#city_host__input").css("border-color","#e74c3c")
-        }
-        else if(!isInputValid($("#city_away__input"))){
-            $("#city_away__input").css("border-color","#e74c3c")
-        }
-        else {
-            $("#search_form").submit();
-
-        }
-
-
-    })
-
-
-
-
-//  $(function(){
-//      $("#submit__button").removeClass("btn-primary").addClass("disabled");
-//      $("#submit__button").prop("disabled",true);
-//
-//  })
-//
-//    jQuery("input[name='city_host'], input[name='city_away']").on('typeahead:selected, typeahead:autocompleted', function (e, datum) {
-//        isInputValid(this)
-//
-//        if(isInputValid($("input[name='city_host']"))&&isInputValid($("input[name='city_away']"))){
-//            $("#submit__button").removeClass("disabled").addClass("btn-primary");
-//            $("#submit__button").prop("disabled",false);
-//
-//        }
-//        else
-//        {
-//            $("#submit__button").removeClass("btn-primary").addClass("disabled");
-//            $("#submit__button").prop("disabled",true);
-//        }
-//    });
-//
-//  $("input[name='city_host'], input[name='city_away']").bind('change keyup',function (){
-//      isInputValid(this)
-//
-//      if(isInputValid($("input[name='city_host']"))&&isInputValid($("input[name='city_away']"))){
-//          $("#submit__button").removeClass("disabled").addClass("btn-primary");
-//          $("#submit__button").prop("disabled",false);
-//
-//      }
-//      else
-//      {
-//          $("#submit__button").removeClass("btn-primary").addClass("disabled");
-//          $("#submit__button").prop("disabled",true);
-//      }
-//
-//  });
-//
-//  $()
-
-</script>
+<p>select2 select box:</p>
+<p>
+  <select id="select2" style="width:200px">
+    <optgroup label="Alaskan/Hawaiian Time Zone">
+      <option value="AK">Alaska</option>
+      <option value="HI">Hawaii</option>
+    </optgroup>
+    <optgroup label="Pacific Time Zone">
+      <option value="CA">北京</option>
+      <option value="NV">Nevada</option>
+      <option value="OR">Oregon</option>
+      <option value="WA">Washington</option>
+    </optgroup>
+    <optgroup label="Mountain Time Zone">
+      <option value="AZ">Arizona</option>
+      <option value="CO">Colorado</option>
+      <option value="ID">Idaho</option>
+      <option value="MT">Montana</option>
+      <option value="NE">Nebraska</option>
+      <option value="NM">New Mexico</option>
+      <option value="ND">North Dakota</option>
+      <option value="UT">Utah</option>
+      <option value="WY">Wyoming</option>
+    </optgroup>
+    <optgroup label="Central Time Zone">
+      <option value="AL">Alabama</option>
+      <option value="AR">Arkansas</option>
+      <option value="IL">Illinois</option>
+      <option value="IA">Iowa</option>
+      <option value="KS">Kansas</option>
+      <option value="KY">Kentucky</option>
+      <option value="LA">Louisiana</option>
+      <option value="MN">Minnesota</option>
+      <option value="MS">Mississippi</option>
+      <option value="MO">Missouri</option>
+      <option value="OK">Oklahoma</option>
+      <option value="SD">South Dakota</option>
+      <option value="TX">Texas</option>
+      <option value="TN">Tennessee</option>
+      <option value="WI">Wisconsin</option>
+    </optgroup>
+    <optgroup label="Eastern Time Zone">
+      <option value="CT">Connecticut</option>
+      <option value="DE">Delaware</option>
+      <option value="FL">Florida</option>
+      <option value="GA">Georgia</option>
+      <option value="IN">Indiana</option>
+      <option value="ME">Maine</option>
+      <option value="MD">Maryland</option>
+      <option value="MA">Massachusetts</option>
+      <option value="MI">Michigan</option>
+      <option value="NH">New Hampshire</option>
+      <option value="NJ">New Jersey</option>
+      <option value="NY">New York</option>
+      <option value="NC">North Carolina</option>
+      <option value="OH">Ohio</option>
+      <option value="PA">Pennsylvania</option>
+      <option value="RI">Rhode Island</option>
+      <option value="SC">South Carolina</option>
+      <option value="VT">Vermont</option>
+      <option value="VA">Virginia</option>
+      <option value="WV">West Virginia</option>
+    </optgroup>
+  </select>
+</p>

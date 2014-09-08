@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   get 'vs/home'
-
-  get 'flatuipro_demo/index'
   get 'vs/result'
-  get 'vs/basics'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
