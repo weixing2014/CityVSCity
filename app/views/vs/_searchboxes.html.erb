@@ -1,5 +1,5 @@
 <% cities = raw @full_named_cities.to_json %>
-
+<% if false%>
 <form id="search_form" class="control-group" method="get" action="result.html">
 
     <input id="city_host__input" class="typeahead" type="text" name="city_host" value="北京, 中国" placeholder="一座城市">
@@ -84,3 +84,26 @@
     </optgroup>
   </select>
 </p>
+
+<% end %>
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10">
+    <div class="row">
+      <div class="col-sm-5 col-xs-10 col-xs-offset-1 col-sm-offset-0 text-center" style="padding-right: 2px; padding-left: 2px; margin-bottom: 5px" >
+          <input type="text" class="form-control" >
+        </div>
+      <div class="col-sm-5 col-xs-10 col-xs-offset-1 col-sm-offset-0 text-center" style="padding-left: 2px; padding-right: 2px; margin-bottom: 5px">
+        <input type="text" class="form-control" >
+      </div>
+      <div class="col-sm-1 col-xs-12 text-center" style="padding-right: 2px; padding-left: 2px">
+        <a href="#" class="btn btn-primary btn-large ">对比一下</a></div>
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.col-lg-6 -->
+
+
+    </div><!-- /.row -->
+  </div>
+</div>
+
+

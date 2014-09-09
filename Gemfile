@@ -25,14 +25,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 gem "therubyracer"
-gem "less-rails"
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'simple_form'
 gem 'minitest'
 gem 'nokogiri'
 gem  'mysql2', '~> 0.3.11'
 gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
-gem "select2-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
