@@ -13,5 +13,6 @@
  *= require_tree .
  *= require bootstrap.min
  *= require bootstrap-theme.min
- *= require theme
+ *= require select2
+ *= require select2-bootstrap-custom
  */

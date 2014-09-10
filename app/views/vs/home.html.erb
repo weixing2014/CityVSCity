@@ -1,4 +1,10 @@
 <% cities = @full_named_cities.to_json %>
-<div style="margin-top: 250px; text-align: center">
-<%= render partial: "searchboxes", locals: {full_named_cities: @full_named_cities} %>
-</div>
+
+
+<div style="height: 40%"></div>
+<div class="container theme-showcase" role="main">
+
+
+  <%= render partial: "searchboxes", locals: {full_named_cities: @full_named_cities} %>
+
+</div> <!-- /container -->
