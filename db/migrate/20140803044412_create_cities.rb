@@ -7,5 +7,7 @@ class CreateCities < ActiveRecord::Migration
       t.integer :country_id
       t.timestamps
     end
+    add_index :cities, [:name_en, :country_id]
+
   end
 end

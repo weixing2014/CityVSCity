@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20140811084209) do
     t.decimal  "contributors",                                              precision: 10, scale: 2
   end
 
+  add_index "cities", ["name_en", "country_id"], name: "index_cities_on_name_en_and_country_id", using: :btree
+
   create_table "countries", force: true do |t|
     t.string "name_en"
     t.string "name_cn"

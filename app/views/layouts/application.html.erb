@@ -1,41 +1,5 @@
 <!DOCTYPE html>
 
-<% if false %>
-
-<html>
-<head>
-  <title>CityVSCity</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
-</head>
-<body>
-<div class="navbar navbar-default">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">比城</a>
-  </div>
-  <div class="navbar-collapse collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">城市对比</a></li>
-    </ul>
-  </div>
-</div>
-
-
-
-
-<%= yield %>
-
-</body>
-</html>
-<% end %>
-
 <html lang="en" style="height: 100%">
 <head>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -78,11 +42,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">比城</a>
+      <a class="navbar-brand" href="<%= vs_home_path%>">比城</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">城市对比</a></li>
+        <li><a href="<%= vs_home_path%>">城市对比</a></li>
         <li><a href="#about">排名</a></li>
         <li><a href="#contact">说明</a></li>
 
