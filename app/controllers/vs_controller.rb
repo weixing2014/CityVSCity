@@ -1,13 +1,11 @@
 class VsController < ApplicationController
 
   def result
-    city_country_host = params[:city_host]
-    city_country_away = params[:city_away]
+    city_host_id = params[:city_host_id]
+    city_away_id = params[:city_away_id]
 
-    @city_host, @country_host = City.extract_city_and_country( city_country_host )
-    @city_away, @country_away = City.extract_city_and_country( city_country_away )
-
-    @full_named_cities = City.list_of_city_and_country_full_names_cn
+    @city_host, @country_host = City.extract_city_and_country( city_id:city_host_id )
+    @city_away, @country_away = City.extract_city_and_country( city_id:city_away_id )
 
     @name_mappings = {}
     NameMapping.all.each do |element|
@@ -19,8 +17,8 @@ class VsController < ApplicationController
   end
 
   def home
-    @city_host, @country_host = City.extract_city_and_country( "北京, 中国" )
-    @city_away, @country_away = City.extract_city_and_country( "西雅图, 美国")
+    @city_host, @country_host = City.extract_city_and_country( city_id:412 )
+    @city_away, @country_away = City.extract_city_and_country( city_id:2821 )
   end
 
 

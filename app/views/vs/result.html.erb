@@ -4,15 +4,15 @@
   <%= render partial: "searchboxes", locals: {full_named_cities: @full_named_cities} %>
 </div>
 <div style="text-align: center; margin-top: 30px">
-  <h2 style="display: block;">
+  <h3 style="display: block;">
     <%=@city_host.name_cn.force_encoding('utf-8')%> 对比 <%=@city_away.name_cn.force_encoding('utf-8')%>
-  </h2>
+  </h3>
   <p style="display: block; margin-bottom: 20px">
     以下数据由<strong><%=@city_host.contributors.to_i + @city_away.contributors.to_i%>人</strong>在过去的18个月中提供，其中<%=@city_host.name_cn.force_encoding('utf-8')%>的数据由<strong><%=@city_host.contributors.to_i %>人</strong>提供，<%=@city_away.name_cn.force_encoding('utf-8')%>的数据由<strong><%=@city_away.contributors.to_i %>人</strong>提供。
   </p>
 </div>
 
-          <table class="table table-striped" style="max-width: 960px; margin: auto;">
+          <table class="table table-striped" style="max-width: 1120px; margin: auto;">
             <tr>
               <th>对比项目</th>
               <th><%= h @city_host.name_cn.force_encoding('utf-8')%></th>

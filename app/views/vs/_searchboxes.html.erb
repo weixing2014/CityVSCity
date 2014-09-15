@@ -4,16 +4,15 @@
 </div>
   <script>
       $(function(){
-          // turn the element to select2 select style
-          $('#select2').select2();
-          $('#select1').select2();
 
-          var data = <%= searchable_city_and_country_json%>;
+          var data = <%=searchable_city_and_country_json %>;
 
           $("input").select2({
+              id: 'city_id',
+              data: {results: data, text: "text"},
               initSelection: function(element, callback) {
                   var selection = _.find(data, function(metric){
-                      return metric.id === element.val();
+                      return metric.city_id === element.val();
                   })
                   callback(selection);
               },
@@ -37,10 +36,12 @@
                       results: filteredData.slice(startIndex, startIndex + pageSize),
                       more: (startIndex + pageSize) < filteredData.length
                   });
-              },
-              placeholder: "选择一座城"
+              }
           });
+          // turn the element to select2 select style
       });
+
+
   </script>
   <style>
     .select2-container{
@@ -48,22 +49,29 @@
     }
   </style>
 
-<div class="row">
-  <div class="col-sm-offset-1 col-sm-10" >
-    <div class="row">
-      <div class="col-sm-5 col-xs-10 col-xs-offset-1 col-sm-offset-0 text-center" style="padding-right: 2px; padding-left: 2px; margin-bottom: 5px" >
-        <input type="hidden">
+<form action=<%=vs_result_path %> method="get" id="city-vs">
+  <div class="container theme-showcase" role="main" >
+  <div class="row ">
+    <div class="col-sm-offset-1 col-sm-10" >
+      <div class="row">
+        <div class="col-sm-5 col-xs-10 col-xs-offset-1 col-sm-offset-0 text-center" style="padding-right: 2px; padding-left: 2px; margin-bottom: 5px" >
+          <input type="hidden" id="city-away-select" name="city_host_id" value="<%= @city_host.id%>">
+
         </div>
-      <div class="col-sm-5 col-xs-10 col-xs-offset-1 col-sm-offset-0 text-center" style="padding-left: 2px; padding-right: 2px; margin-bottom: 5px">
-        <input type="hidden">
-      </div>
-      <div class="col-sm-1 col-xs-12 text-center" style="padding-right: 2px; padding-left: 2px">
-        <a href="#" class="btn btn-primary btn-large ">对比一下</a></div>
+        <div class="col-sm-5 col-xs-10 col-xs-offset-1 col-sm-offset-0 text-center" style="padding-left: 2px; padding-right: 2px; margin-bottom: 5px">
+          <input type="hidden" id="city-away-select" name="city_away_id" value="<%= @city_away.id%>">
+        </div>
+        <div class="col-sm-1 col-xs-12 text-center" style="padding-right: 2px; padding-left: 2px">
+          <button type="submit" class="btn btn-primary btn-large ">对比一下</button></div>
       </div><!-- /.col-lg-6 -->
     </div><!-- /.col-lg-6 -->
 
 
-    </div><!-- /.row -->
+  </div><!-- /.row -->
+
+</div>
+</form>
+
   </div>
 </div>
 
