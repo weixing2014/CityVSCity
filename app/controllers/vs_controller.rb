@@ -20,8 +20,7 @@ class VsController < ApplicationController
 
   def home
     @city_host, @country_host = City.extract_city_and_country( "北京, 中国" )
-    @city_away, @country_away = City.extract_city_and_country( "西雅图, 美国" )
-    @full_named_cities = City.list_of_city_and_country_full_names_cn
+    @city_away, @country_away = City.extract_city_and_country( "西雅图, 美国")
   end
 
 
