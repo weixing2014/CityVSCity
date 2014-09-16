@@ -1,9 +1,10 @@
+
 <% if @name_mappings[column].present? %>
 <tr>
   <td width="25%"><%= @name_mappings[column].force_encoding('utf-8') %></td>
   <td width="25%"><%= make_it_price(number_with_precision(@city_host.try(column), precision: 1)) %></td>
-
   <td width="25%"><%= make_it_price(number_with_precision(@city_away.try(column), precision: 1)) %></td>
-  <td width="25%"><%= comparison_result(city_host:@city_host, city_away:@city_away,  item: column) %></td>
+  <% color = if @city_host.try(column)>@city_away.try(column) then '#e96151' else '#1abc9c' end%>
+  <td width="25%" style="color:<%= color %>"><%= comparison_result(city_host:@city_host, city_away:@city_away,  item: column) %></td>
 </tr>
 <% end %>
