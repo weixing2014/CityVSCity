@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AddNameMappings < ActiveRecord::Migration
     def up
       create_table :name_mappings do |t|
