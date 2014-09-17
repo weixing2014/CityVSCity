@@ -9,7 +9,7 @@ class City < ActiveRecord::Base
     return @full_named_cities = Country.joins(:cities).select("CONCAT(cities.id,'') as city_id,  countries.name_cn, cities.searchable, CONCAT(cities.name_cn, ', ', countries.name_cn) as text").where("cities.searchable = 1").order("cities.contributors desc").to_json
   end
 
-  def self.extract_city_and_country( city_id:412)
+  def self.extract_city_and_country( city_id: 412)
     city = find(city_id)
     country = city.country
     return city, country
