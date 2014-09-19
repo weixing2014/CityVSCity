@@ -18,8 +18,9 @@
     <data-source source="LOCAL" name="Rails CityVSCity: production" uuid="429eb3d8-5108-4af0-a980-733dd543b364">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/city_production</jdbc-url>
-      <user-name>root</user-name>
+      <jdbc-url>jdbc:mysql://127.0.0.1/rails</jdbc-url>
+      <user-name>rails</user-name>
+      <user-password>dfccdfc3dfc4dfcedff5dfc3dfc4dff5dfd9dfd9dfc2dff5dfdedfc2dfc3dfc4dfcd</user-password>
       <libraries />
     </data-source>
   </component>

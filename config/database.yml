@@ -16,8 +16,8 @@ test:
 
 production:
   adapter: mysql2
-  database: city_production
-  username: root
-  password: 
+  database: rails
+  username: rails
+  password: Y4CM5jvRUW
   host: localhost
   encoding: utf8
