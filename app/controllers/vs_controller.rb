@@ -1,5 +1,7 @@
 class VsController < ApplicationController
 
+  include IndexName
+
   def result
     city_host_id = params[:city_host_id]
     city_away_id = params[:city_away_id]
@@ -21,10 +23,5 @@ class VsController < ApplicationController
     @city_away, @country_away = City.extract_city_and_country( city_id:2821 )
   end
 
-
-
   private
-
-
-
 end

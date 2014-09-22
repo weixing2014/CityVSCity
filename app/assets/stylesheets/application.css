@@ -15,4 +15,6 @@
  *= require bootstrap-theme.min
  *= require select2
  *= require select2-bootstrap-custom
+ *= require jquery.dataTables
+
  */

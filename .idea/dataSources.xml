@@ -20,7 +20,7 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/rails</jdbc-url>
       <user-name>rails</user-name>
-      <user-password>dfccdfc3dfc4dfcedff5dfc3dfc4dff5dfd9dfd9dfc2dff5dfdedfc2dfc3dfc4dfcd</user-password>
+      <user-password>dff3df9edfe9dfe7df9fdfc0dfdcdff8dfffdffd</user-password>
       <libraries />
     </data-source>
   </component>

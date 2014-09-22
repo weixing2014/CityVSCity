@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get 'about/index'
-
   get 'vs/home'
   get 'vs/result'
+  get 'rankings/index'
+  root 'vs#home'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
