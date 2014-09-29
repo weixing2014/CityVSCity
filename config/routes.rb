@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   get 'vs/home'
   get 'vs/result'
   get 'rankings/index'
+  get 'city/index'
+  get 'city/result'
   root 'vs#home'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

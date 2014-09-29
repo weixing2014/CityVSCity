@@ -4,7 +4,6 @@ class City < ActiveRecord::Base
 
   belongs_to :country
   scope :contributors_desc, lambda { order(contributors: :desc) }
-  scope :searchables, lambda {where("searchable is true")}
   def self.searchable_city_and_country_json
     return @city_name_list_cn_json = Country.joins(:cities).select("CONCAT(cities.id,'') as city_id,  countries.name_cn, cities.searchable, CONCAT(cities.name_cn, ', ', countries.name_cn) as text").where("cities.searchable = 1").order("cities.contributors desc").to_json
   end
@@ -21,6 +20,11 @@ class City < ActiveRecord::Base
 
   def city_and_country
     return name_cn+", "+ self.country[:name_cn]
+  end
+
+  def position(index)
+    cities = City.select("id, searchable, #{index}").where("cities.searchable = 1").order("#{index} desc")
+    cities.map(&:id).index(self.id)
   end
 
 end

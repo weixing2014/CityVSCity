@@ -1,0 +1,83 @@
+<% city_name_list_cn_json = @city_name_list_cn_json %>
+
+<div style="text-align: center">
+  <%= render partial: "searchboxes", locals: {full_named_cities: @full_named_cities} %>
+</div>
+<div style="text-align: center; margin-top: 30px">
+  <h3 style="display: block;">
+    <%=@city.name_cn.force_encoding('utf-8')%> 的城市数据
+  </h3>
+  <p style="display: block; margin-bottom: 20px">
+    以下数据由<strong><%=@city.contributors.to_i %>人</strong>在过去的18个月中提供。
+  </p>
+</div>
+
+<table class="table table-striped" style="max-width: 1120px; margin: auto;">
+  <tr>
+    <th>城市指标</th>
+    <th><%= h @city.name_cn.force_encoding('utf-8')%></th>
+    <th>在1147座被统计城市中排名</th>
+  </tr>
+
+  <%= render partial: "city_tr_title", locals:{title:'收入'} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :average_monthly_disposable_salary_after_tax, precision: 0} %>
+
+  <%= render partial: "city_tr_title", locals:{title:'住'} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :apartment_one_bedroom_in_city_centre, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :apartment_one_bedroom_outside_of_centre, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :apartment_three_bedrooms_in_city_centre, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :apartment_three_bedrooms_outside_of_centre, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :price_per_square_meter_to_buy_apartment_in_city_centre, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :price_per_square_meter_to_buy_apartment_outside_of_centre, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :basic_utilities_for_an_apartment, precision: 0} %>
+
+  <%= render partial: "city_tr_title", locals:{title:'食（餐厅）'} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :meal_in_inexpensive_restaurant, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :meal_for_two_in_mid_range_restaurant_three_course, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :combo_meal_at_mcdonalds, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :domestic_beer_half_liter_draught, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :cappuccino_regular} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :pepsi_coke_one_third_liter} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :water_one_third_liter} %>
+
+  <%= render partial: "city_tr_title", locals:{title:'食（日常）'} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :milk_regular_one_liter} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :loaf_of_fresh_white_bread_half_kilogram} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :rice_white_one_kilogram} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :eggs_a_dozen} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :local_cheese_one_kilogram} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :chicken_breasts_boneless_skinless_one_kilogram} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :apples_one_kilogram} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :oranges_one_kilogram} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :tomato_one_kilogram} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :potato_one_kilogram} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :lettuce_one_head} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :water_one_and_a_half_liter_bottle} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :domestic_beer_half_liter_bottle} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :imported_beer_one_third_liter_bottle} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :pack_of_cigarettes_marlboro} %>
+
+  <%= render partial: "city_tr_title", locals:{title:'衣'} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :a_pair_of_jeans_levis_501, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :a_summer_dress_in_a_chain_store_zara_hm, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :a_pair_of_nike_shoes, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :a_pair_of_men_leather_shoes, precision: 0} %>
+
+  <%= render partial: "city_tr_title", locals:{title:'行'} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :one_way_ticket_local_transport} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :monthly_pass_regular_price} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :taxi_start_normal_tariff} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :taxi_one_kilometer_normal_tariff} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :gasoline_one_liter} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :volkswagen_golf_trendline, precision: 0} %>
+
+  <%= render partial: "city_tr_title", locals:{title:'其他'} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :one_min_of_prepaid_mobile_tariff} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :internet_six_m_cable, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :fitness_club_monthly_fee_for_one_adult, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :tennis_court_rent_one_hour_on_weekend, precision: 0} %>
+  <%= render partial: "city_tr", locals: {city:@city, column: :cinema_international_release_one_seat, precision: 0} %>
+
+
+
+</table>

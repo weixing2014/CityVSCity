@@ -1,0 +1,5 @@
+<% cities = @full_named_cities.to_json %>
+
+
+<div style="height: 30%"></div>
+<%= render partial: "searchboxes", locals: {full_named_cities: @full_named_cities} %>

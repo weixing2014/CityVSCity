@@ -31,7 +31,7 @@ cities:
   - bottle_of_wine_mid_range
   - domestic_beer_half_liter_bottle
   - imported_beer_one_third_liter_bottle
-  - ':pack_of_cigarettes_marlboro'
+  - 'pack_of_cigarettes_marlboro'
   - one_way_ticket_local_transport
   - monthly_pass_regular_price
   - taxi_start_normal_tariff
@@ -170289,7 +170289,7 @@ name_mappings:
     - !binary |-
       5bCP55O26L+b5Y+j5ZWk6YWS77yIMzMwbWzvvIk=
   - - '23'
-    - ':pack_of_cigarettes_marlboro'
+    - 'pack_of_cigarettes_marlboro'
     - Pack of Cigarettes (Marlboro)
     - !binary |-
       5LiH5a6d6Lev6aaZ54Of77yI5LiA5YyF77yJ

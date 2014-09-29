@@ -6,20 +6,23 @@
   <li><a href="rankings/clothes">衣</a></li>
   <li><a href="rankings/miscellaneous">其他</a></li>
 </ul>
+  <div style="text-align: center;">
+    <h2>根据<span class="order-text"></span>排序（单位：元）</h2>
+  </div>
 <div style="height: 20%"></div>
 
 <table id="example" class="display" cellspacing="0" width="100%">
 <thead>
 <tr>
-  <th>排名</th>
-  <th>城市</th>
-  <th>收入</th>
-  <th>住房1</th>
-  <th>住房1</th>
-  <th>住房1</th>
-  <th>住房1</th>
-  <th>住房1</th>
-  <th>住房1</th>
+  <th width="10%">排名</th>
+  <th width="20%">城市(共统计全球1178座主要城市)</th>
+  <th width="10%"><%= name_cn(:average_monthly_disposable_salary_after_tax) %></th>
+  <th width="10%"><%= name_cn(:apartment_one_bedroom_in_city_centre) %></th>
+  <th width="10%"><%= name_cn(:apartment_three_bedrooms_in_city_centre) %></th>
+  <th width="10%"><%= name_cn(:apartment_three_bedrooms_outside_of_centre) %></th>
+  <th width="10%"><%= name_cn(:price_per_square_meter_to_buy_apartment_in_city_centre) %></th>
+  <th width="10%"><%= name_cn(:price_per_square_meter_to_buy_apartment_outside_of_centre) %></th>
+  <th width="10%"><%= name_cn(:basic_utilities_for_an_apartment) %></th>
 
 </tr>
 </thead>
@@ -30,13 +33,13 @@
 <tr>
   <td><%= html_escape index+1 %></td>
   <td><%=html_escape city['city_name_cn'] + ', ' + city['country_name_cn'] %></td>
-  <td><%=html_escape city['average_monthly_disposable_salary_after_tax'] %></td>
-  <td><%=html_escape city['apartment_one_bedroom_in_city_centre'] %></td>
-  <td><%=html_escape city['apartment_three_bedrooms_in_city_centre'] %></td>
-  <td><%=html_escape city['apartment_three_bedrooms_outside_of_centre'] %></td>
-  <td><%=html_escape city['price_per_square_meter_to_buy_apartment_in_city_centre'] %></td>
-  <td><%=html_escape city['price_per_square_meter_to_buy_apartment_outside_of_centre'] %></td>
-  <td><%=html_escape city['basic_utilities_for_an_apartment'] %></td>
+  <td><%=city['average_monthly_disposable_salary_after_tax'] %></td>
+  <td><%=city['apartment_one_bedroom_in_city_centre'] %></td>
+  <td><%=city['apartment_three_bedrooms_in_city_centre'] %></td>
+  <td><%=city['apartment_three_bedrooms_outside_of_centre'] %></td>
+  <td><%=city['price_per_square_meter_to_buy_apartment_in_city_centre']  %></td>
+  <td><%=city['price_per_square_meter_to_buy_apartment_outside_of_centre']  %></td>
+  <td><%=city['basic_utilities_for_an_apartment']%></td>
 </tr>
 <% end %>
 </tbody>
@@ -50,8 +53,20 @@
         "bLengthChange": false,
         "bInfo": false,
         "aoColumnDefs": [
-          { "bSortable": false, "aTargets": [ 0 ] }
+          { "bSortable": false, "aTargets": [ 0, 1 ] }
         ],
+        "aoColumns": [
+          null,
+          null,
+          { "asSorting": [ "desc", "asc" ] },
+          { "asSorting": [ "desc", "asc" ] },
+          { "asSorting": [ "desc", "asc" ] },
+          { "asSorting": [ "desc", "asc" ] },
+          { "asSorting": [ "desc", "asc" ] },
+          { "asSorting": [ "desc", "asc" ] },
+          { "asSorting": [ "desc", "asc" ] }
+        ],
+        "order": [[ 3, "desc" ]],
         "fnDrawCallback": function ( oSettings ) {
           /* Need to redo the counters if filtered or sorted */
           if ( oSettings.bSorted)
@@ -64,6 +79,19 @@
         }
       }
     );
+
+    $('.order-text').html(' ' + $("#example thead th").eq(3).text() + ' ');
+
+    $("#example thead th").click(function(e) {
+      $('.order-text').html(' '+$(this).text()+' ');
+    } );
+
+    $('#example').bind('sort', function (e, dt) {
+      var direction = dt.aaSorting[0][1];
+      var columnIndex = dt.aaSorting[0][0];
+      var columnName = dt.aoColumns[columnIndex].sTitle;
+      console.log(direction,columnIndex,columnName);
+    });
 
     $('.dataTables_paginate').parent().removeClass('col-xs-6').addClass('col-xs-12').css('text-align', 'center')
   } );

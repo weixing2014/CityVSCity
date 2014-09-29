@@ -30,7 +30,7 @@ class AddNameMappings < ActiveRecord::Migration
       NameMapping.create :database_name_en => "bottle_of_wine_mid_range", :numbeo_item_name => "Bottle of Wine (Mid-Range)", :name_cn => "中档瓶装红酒"
       NameMapping.create :database_name_en => "domestic_beer_half_liter_bottle", :numbeo_item_name => "Domestic Beer (0.5 liter bottle)", :name_cn => "本地啤酒一瓶（500ml）"
       NameMapping.create :database_name_en => "imported_beer_one_third_liter_bottle", :numbeo_item_name => "Imported Beer (0.33 liter bottle)", :name_cn => "小瓶进口啤酒（330ml）"
-      NameMapping.create :database_name_en => ":pack_of_cigarettes_marlboro", :numbeo_item_name => "Pack of Cigarettes (Marlboro)", :name_cn => "万宝路香烟（一包）"
+      NameMapping.create :database_name_en => "pack_of_cigarettes_marlboro", :numbeo_item_name => "Pack of Cigarettes (Marlboro)", :name_cn => "万宝路香烟（一包）"
       NameMapping.create :database_name_en => "one_way_ticket_local_transport", :numbeo_item_name => "One-way Ticket (Local Transport)", :name_cn => "单程公交车票"
       NameMapping.create :database_name_en => "monthly_pass_regular_price", :numbeo_item_name => "Monthly Pass (Regular Price)", :name_cn => "普通月票"
       NameMapping.create :database_name_en => "taxi_start_normal_tariff", :numbeo_item_name => "Taxi Start (Normal Tariff)", :name_cn => "出租车起步价"
