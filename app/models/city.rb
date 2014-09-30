@@ -9,7 +9,7 @@ class City < ActiveRecord::Base
   end
 
   def self.searchable_cities(*params, order_index: :contributors, order_by: :desc)
-    params = ['id','countries.name_cn as country_name_cn', 'cities.name_cn as city_name_cn','cities.apartment_one_bedroom_in_city_centre'].concat(params).uniq
+    params = ['id','countries.name_cn as country_name_cn', 'cities.name_cn as city_name_cn'].concat(params).uniq
     @cities_cn_json = Country.joins(:cities).select(params).where("cities.searchable = 1").order("cities.#{order_index.to_s} #{order_by.to_s}").to_json
   end
   def self.extract_city_and_country( city_id: 412)

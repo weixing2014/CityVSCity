@@ -1,0 +1,95 @@
+<% columns = @cities.first.keys - ['id'] - ['city_name_cn'] - ['country_name_cn'] %>
+
+
+<div style="max-width: 1120px; margin: auto">
+<ul class="nav nav-pills">
+  <li id="house"><a href="<%= rankings_house_path %>">住</a></li>
+  <li id="food_restaurant"><a href="<%= rankings_food_restaurant_path %>">食（餐馆）</a></li>
+  <li id="food_daily"><a href="<%= rankings_food_daily_path %>">食（日常）</a></li>
+  <li id="transport"><a href="<%= rankings_transport_path %>">行</a></li>
+  <li id="clothes"><a href="<%= rankings_clothes_path %>">衣</a></li>
+  <li id="miscellaneous"><a href="<%= rankings_miscellaneous_path %>">收入及其他</a></li>
+</ul>
+  <div style="text-align: center;">
+    <h3>根据<span class="order-text"></span>排序（单位：元）</h3>
+    <h4>共统计全球<%= @cities.size %>座主要城市</h4>
+  </div>
+<div style="height: 20%"></div>
+
+<table id="example" class="display" cellspacing="0" width="100%">
+<thead>
+<tr>
+  <th width="5%" style="min-width: 30px">排名</th>
+  <th width="10%" style="min-width: 70px">城市</th>
+  <% columns.each do |column_name|%>
+  <th style="min-width: 50px" width="<%= 80/columns.size %>%"><%= name_cn(column_name.to_sym) %></th>
+  <% end %>
+</tr>
+</thead>
+
+<tbody>
+
+<% @cities.each.with_index do |city, index| %>
+<tr>
+  <td><%= html_escape index+1 %></td>
+  <td><%=html_escape city['city_name_cn'] + ', ' + city['country_name_cn'] %></td>
+  <% columns.each do |column_name| %>
+  <td><%=city[column_name] %></td>
+  <% end %>
+</tr>
+<% end %>
+</tbody>
+</table>
+</div>
+<script>
+  $(document).ready(function() {
+    $("ul.nav li#<%= active_id %>").addClass('active');
+
+
+    $('#example').dataTable(
+      {
+        "scrollX": true,
+        "iDisplayLength": 100,
+        "bLengthChange": false,
+        "bInfo": false,
+        "aoColumnDefs": [
+          { "bSortable": false, "aTargets": [ 0, 1 ] }
+        ],
+        "aoColumns": [
+          null,
+          null,
+          <% columns.each do |column_name| %>
+          { "asSorting": [ "desc", "asc" ] },
+          <% end %>
+        ],
+        "order": [[ 2, "desc" ]],
+        "fnDrawCallback": function ( oSettings ) {
+          /* Need to redo the counters if filtered or sorted */
+          if ( oSettings.bSorted)
+          {
+            for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+            {
+              $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+            }
+          }
+        }
+      }
+    );
+
+    $('.order-text').html(' ' + $("#example thead th").eq(2).text() + ' ');
+
+    $("#example thead th").click(function(e) {
+      $('.order-text').html(' '+$(this).text()+' ');
+    } );
+
+    $('#example').bind('sort', function (e, dt) {
+      var direction = dt.aaSorting[0][1];
+      var columnIndex = dt.aaSorting[0][0];
+      var columnName = dt.aoColumns[columnIndex].sTitle;
+      console.log(direction,columnIndex,columnName);
+    });
+
+    $('.dataTables_paginate').parent().removeClass('col-xs-6').addClass('col-xs-12').css('text-align', 'center')
+  } );
+</script>
+
