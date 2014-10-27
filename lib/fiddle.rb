@@ -1,10 +1,16 @@
-class Dummy
-  def method_missing(m, *args, &block)
-    if m.to_s
-    puts "There's no method called #{m} here -- please try again."
-    else
-      super
+
+class Array
+  def iterate!(block)
+    self.each_with_index do |value, index|
+      self[index] = block.call(value)
     end
   end
 end
-p Dummy.new.respond_to?"hello"
+
+array = [1, 2, 3, 4]
+
+array.iterate!(Proc.new do |n|
+  n ** 2
+end)
+
+puts array.inspect

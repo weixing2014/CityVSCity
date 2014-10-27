@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   get 'city/index'
   get 'city/result'
   root 'vs#home'
-
+  namespace :experiment do
+    resources :cities, only: :index
+    get 'cities/city_options', to: 'cities#city_options'
+    get 'cities/city_info', to: 'cities#city_info'
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

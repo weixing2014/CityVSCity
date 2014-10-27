@@ -19,7 +19,6 @@
 //= require bootstrap.min
 //= require select2.min
 //= require turbolinks
-//= require_tree .
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap
 
